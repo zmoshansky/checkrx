@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  din: 
+  brand_name: MyString
+  generic_name: MyString
+  pharmacy: 
+  expected_restock: 2014-05-10 13:24:26
+
+two:
+  din: 
+  brand_name: MyString
+  generic_name: MyString
+  pharmacy: 
+  expected_restock: 2014-05-10 13:24:26
