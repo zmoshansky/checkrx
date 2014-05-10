@@ -5,12 +5,7 @@ class RxAlertsController < ApplicationController
   end
 
   def index
-
-  end
-
-  def new
-
-
+    @rx_alerts = RxAlert.all
   end
 
   def create
