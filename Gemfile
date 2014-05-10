@@ -25,8 +25,8 @@ gem 'jquery-rails'
 
 group :development do
   gem 'sextant'
-  # gem 'pry', '0.9.12.2'
-  # gem 'pry-debugger'
+  gem 'pry', '0.9.12.2'
+  gem 'pry-debugger'
 end
 
 # To use ActiveModel has_secure_password
