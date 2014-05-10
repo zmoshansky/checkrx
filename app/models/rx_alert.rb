@@ -9,4 +9,5 @@ class RxAlert < ActiveRecord::Base
 
    def availability= (value)
      write_attribute(:availability, value.to_s)
+   end
 end
