@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Checkrx2::Application.load_tasks
+Checkrx::Application.load_tasks
