@@ -1,5 +1,5 @@
-<%= form_for @rx_alert do |f| %>
+<%= form_for @rx_alert, url: wizard_path, method: :put do |f| %>
+  <%= hidden_field_tag(:rx_alert_id, @rx_alert.id) %>
   <%= f.text_field :din %>
-  <%# f.submit 'Find Medication for Din' %>
-  <%= link_to 'Find Medication for Din', next_wizard_path(rx_alert_id: @rx_alert.id) %>
+  <%= f.submit 'Find Medication for Din' %>
 <% end %>

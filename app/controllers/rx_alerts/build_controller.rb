@@ -5,26 +5,15 @@ class RxAlerts::BuildController < ApplicationController
 
   def show
     authenticate_user!
-    # binding.pry
-    # binding.pry
     @rx_alert = RxAlert.find(params[:rx_alert_id])
-    # case step
-    # when :din
-    #   @rx_alert = current_user.employable.rx_alerts.create
-    # when :message
-    #   return redirect_to wizard_path(steps.first) if @rx_alert.nil?
-    # end
     render_wizard
-
-    # @rx_alerts = [RxAlert.find(params[:id])]
-    # render :index
   end
 
   def update
-    binding.pry
-    @rx_alert = rx_alert.find(params[:rx_alert_id])
-    @rx_alert.update_attributes(params[:rx_alert])
-    render_wizard @rx_alert
+    @rx_alert = RxAlert.find(params[:rx_alert_id])
+    params.delete(params[:rx_alert_id])
+    res = @rx_alert.update_attributes(params[:rx_alert])
+    redirect_to wizard_path(next_step, rx_alert_id: @rx_alert.id)
   end
 
   def index
@@ -34,11 +23,14 @@ class RxAlerts::BuildController < ApplicationController
   def create
     authenticate_user!
     @rx_alert = current_user.employable.rx_alerts.create
-    redirect_to wizard_path(steps.first, :rx_alert_id => @rx_alert.id)
+    redirect_to wizard_path(steps.first, rx_alert_id: @rx_alert.id)
   end
 
   def destroy
     # authenticate_user!
   end
 
+  def finish_wizard_path
+    rx_alert_path(params[:rx_alert_id])
+  end
 end

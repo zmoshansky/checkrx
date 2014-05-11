@@ -1,6 +1,7 @@
-<%= form_for @rx_alert do |f| %>
+<%= form_for @rx_alert, url: wizard_path, method: :put do |f| %>
+  <%= hidden_field_tag(:rx_alert_id, @rx_alert.id) %>
   <%= f.text_area :message %>
   <%= f.text_field :expected_restock %>
   <%= f.text_field :availability %>
-  <%= link_to 'Review', next_wizard_path(rx_alert_id: @rx_alert.id) %>
+  <%= f.submit 'Find Medication for Din' %>
 <% end %>

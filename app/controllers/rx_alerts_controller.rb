@@ -6,8 +6,7 @@ class RxAlertsController < ApplicationController
         redirect_to '/rx_alerts_builder'
       end
     else
-      @rx_alerts = [RxAlert.find(params[:id])]
-      render :index
+      @rx_alert = RxAlert.find(params[:id])
     end
   end
 

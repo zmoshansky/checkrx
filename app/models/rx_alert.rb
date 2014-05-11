@@ -1,6 +1,6 @@
 class RxAlert < ActiveRecord::Base
   belongs_to :pharmacy
-  attr_accessible :brand_name, :din, :expected_restock, :generic_name, :message
+  attr_accessible :brand_name, :din, :expected_restock, :generic_name, :message, :availability
   # validates_inclusion_of :availability, :in => [:avail, :low, :out]
   before_create { self.build_status = 'incomplete' }
 

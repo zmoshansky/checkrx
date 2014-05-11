@@ -1,15 +1,15 @@
 <div class="rx_alert_feed_item">
     <div class="alert-drug-details pull-left">
-	  <% if alert.generic_name %>    	
-        <span>Drug: <%= alert.brand_name + ' / ' + alert.generic_name %></span>
+	  <% if alert_feed_item.generic_name %>
+        <span>Drug: <%= alert_feed_item.brand_name + ' / ' + alert_feed_item.generic_name %></span>
       <% else %>
-	    <span>Drug: <%= alert.brand_name %></span>
+	    <span>Drug: <%= alert_feed_item.brand_name %></span>
 	  <% end %>
-	  <span>(<a onclick="openDrugFormulary(<%= alert.din %>)" title="Click to Search on Drug Formulary">DIN: <%= alert.din %>)</a></span>
+	  <span>(<a onclick="openDrugFormulary(<%= alert_feed_item.din %>)" title="Click to Search on Drug Formulary">DIN: <%= alert_feed_item.din %>)</a></span>
     </div>
     <div class="pull-right">
-        <span>Availability: <%= alert.availability_human %></span><br>
-        <span>Sent out: <%= alert.updated_at.to_formatted_s(:short) %> (GMT)</span><br>
-        <span>Expected restock date: <%= alert.expected_restock.to_formatted_s(:short) %> (GMT)</span>
+        <span>Availability: <%= alert_feed_item.availability_human %></span><br>
+        <span>Sent out: <%= alert_feed_item.updated_at.to_formatted_s(:short) %> (GMT)</span><br>
+        <span>Expected restock date: <%= alert_feed_item.expected_restock.to_formatted_s(:short) %> (GMT)</span>
     </div>
 </div>
