@@ -1,10 +1,14 @@
 <div class="rx_alert_feed_item">
     <div class="alert-drug-details pull-left">
-        <span>Drug: <%= alert.brand_name %></span>
+	  <% if alert.generic_name %>    	
+        <span>Drug: <%= alert.brand_name + ' / ' + alert.generic_name %></span>
+      <% else %>
+	    <span>Drug: <%= alert.brand_name %></span>
+	  <% end %>
         <span>Availability: <%= alert.availability %></span>
     </div>
     <div class="pull-right">
-        <span>Sent out: <%= alert.updated_at.to_formatted_s(:short) %></span>
-        <span>Expected restock date: <%= alert.expected_restock.to_formatted_s(:short) %></span>
+        <span>Sent out: <%= alert.updated_at.to_formatted_s(:short) %>(GMT)</span>
+        <span>Expected restock date: <%= alert.expected_restock.to_formatted_s(:short) %>(GMT)</span>
     </div>
 </div>
