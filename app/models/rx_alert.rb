@@ -10,4 +10,17 @@ class RxAlert < ActiveRecord::Base
    def availability= (value)
      write_attribute(:availability, value.to_s)
    end
+
+  def self.get_rev_sorted_alerts(limit)
+    alerts = self.all
+    self.get_rev_sorted_alerts_from_array(alerts, limit)
+  end
+  def self.get_rev_sorted_alerts_from_array(alerts, limit)
+    rev_sorted_alerts = alerts.sort { |a,b| a.updated_at <=> b.updated_at }
+    if limit
+      return rev_sorted_alerts[0..limit]
+    else
+      return rev_sorted_alerts
+    end
+  end
 end
