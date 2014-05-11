@@ -1,0 +1,28 @@
+<h2>Create a new pharmacy</h2>
+
+<%= form_for @pharmacy do |f| %>
+  <% @pharmacy.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+
+  <div><%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %></div>
+
+  <div><%= f.label :address %><br />
+    <%= f.text_field :address, autocomplete: "off" %></div>
+
+  <div><%= f.label :city %><br />
+    <%= f.text_field :city, autocomplete: "off" %></div>
+
+  <div><%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code, autocomplete: "off" %></div>
+
+  <div><%= f.label :phone %><br />
+    <%= f.text_field :phone, autocomplete: "off" %></div>
+
+  <div><%= f.label :email %><br />
+    <%= f.email_field :email, autocomplete: "off" %></div>
+
+  <div><%= f.submit "Create Pharmacy" %></div>
+<% end %>
+
