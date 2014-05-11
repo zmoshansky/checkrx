@@ -1,10 +1,9 @@
 class RxAlertsController < ApplicationController
 
   def show
-    # binding.pry
     if params[:id] == 'building'
       if has_pharmacy?
-        return redirect_to action: 'create'
+        redirect_to '/rx_alerts_builder'
       end
     else
       @rx_alerts = [RxAlert.find(params[:id])]
@@ -12,8 +11,14 @@ class RxAlertsController < ApplicationController
     end
   end
 
+  def update
+    @rx_alert = RxAlert.find(params[:id])
+    @rx_alert.mark_complete!
+    flash[notice: 'Rx Alert Created']
+    render :show
+  end
+
   def index
-    # binding.pry
     @rx_alerts = RxAlert.all
     todays_date = DateTime.now.beginning_of_day
     week_ago_date = todays_date - 7
@@ -29,15 +34,11 @@ class RxAlertsController < ApplicationController
   end
 
   def new
-    # authenticate_user!
-    # if current_user.employable.nil?
-    #   redirect_to edit_user_registration_path(current_user), flash: {error: 'You must have a pharmacy to create a RX Alert'}
-    # end
-    # @rx_alert = RxAlert.new
+    redirect_to '/rx_alerts_builder'
   end
 
   def create
-    # authenticate_user!
+    new
   end
 
   def destroy

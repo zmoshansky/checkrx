@@ -1,10 +1,11 @@
 class RxAlert < ActiveRecord::Base
   belongs_to :pharmacy
-  attr_accessible :brand_name, :din, :expected_restock, :generic_name
-  validates_inclusion_of :availability, :in => [:avail, :low, :out]
+  attr_accessible :brand_name, :din, :expected_restock, :generic_name, :message
+  # validates_inclusion_of :availability, :in => [:avail, :low, :out]
+  before_create { self.build_status = 'incomplete' }
 
    def availability
-     read_attribute(:availability).to_sym
+     read_attribute(:availability).to_sym unless read_attribute(:availability).nil?
    end
 
    def availability= (value)
@@ -25,6 +26,7 @@ class RxAlert < ActiveRecord::Base
     alerts = self.all
     self.get_rev_sorted_alerts_from_array(alerts, limit)
   end
+
   def self.get_rev_sorted_alerts_from_array(alerts, limit)
     rev_sorted_alerts = alerts.sort { |a,b| a.updated_at <=> b.updated_at }
     if limit
@@ -33,4 +35,8 @@ class RxAlert < ActiveRecord::Base
       return rev_sorted_alerts
     end
   end
+
+   def mark_complete!
+     write_attribute(:build_status, 'complete')
+   end
 end

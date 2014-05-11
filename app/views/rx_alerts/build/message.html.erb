@@ -1,0 +1,6 @@
+<%= form_for @rx_alert do |f| %>
+  <%= f.text_area :message %>
+  <%= f.text_field :expected_restock %>
+  <%= f.text_field :availability %>
+  <%= link_to 'Review', next_wizard_path(rx_alert_id: @rx_alert.id) %>
+<% end %>

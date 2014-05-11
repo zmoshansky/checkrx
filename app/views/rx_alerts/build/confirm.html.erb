@@ -1,0 +1,5 @@
+<%= render partial: 'rx_alerts/rx_alert_tile', object: @rx_alert %>
+<%= form_for @rx_alert do |f| %>
+  <%= hidden_field_tag(:build_status, "complete") %>
+  <%= f.submit 'Create Alert' %>
+<% end %>
