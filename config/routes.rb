@@ -1,10 +1,10 @@
 Checkrx::Application.routes.draw do
+  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   resources :rx_alerts, only: [:index, :show, :new, :create, :update, :destroy]
-  devise_for :users
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
