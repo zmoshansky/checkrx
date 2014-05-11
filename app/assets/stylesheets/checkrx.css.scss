@@ -48,7 +48,7 @@ body{
 }
 .user-menu .tab-holder{
   padding-right:5px;
-  padding-top: 19px;
+  padding-top: 18px;
 }
 .nav-tab {
   height: 25px;
@@ -204,5 +204,9 @@ h2 {
 
 .search-box{
   float: right;
-  margin: 5px;
+  margin-left: 5px;
+}
+
+.sign-out{
+  margin-top: 5px;
 }
