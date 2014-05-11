@@ -7,7 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="banner-top"><div class="banner-title">Check</div><div class="banner-icon"></div></div>
+<div class="banner-top">
+	<a href="<%= rx_alerts_path %>">
+	  <div class="banner-title">Check</div>
+	  <div class="banner-icon"></div>
+	</a>
+</div>
+<div class="user-menu">
+ <% if user_signed_in? %>
+ 	<%= link_to 'Add New Alert', new_rx_alert_path, {class: 'nav-active-action nav-button'} %>
+ 	<%= link_to 'Sign out', destroy_user_session_path, {class: 'nav-button', method: :delete} %>
+ <% elsif !params[:controller].include? "devise" %>
+ 	<%= link_to 'Sign in', new_user_session_path, {class: 'nav-button'} %>
+ <% end %>
+</div>
 <div class="main-body">
 	<%= yield %>
 </div>

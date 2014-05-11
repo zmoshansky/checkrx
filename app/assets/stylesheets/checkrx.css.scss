@@ -3,6 +3,7 @@ body{
   background-color: #2FA27C;
 }
 .banner-top{
+  float: left;
   margin: 10px;
   height: 60px;
 }
@@ -25,9 +26,15 @@ body{
   float: left;
   padding-top: 3px;
 }
+.user-menu{
+  float: right;
+  padding-right: 15px;
+  padding-top: 50px;
+}
 .main-body{
+  clear: both;
   border: 2px #000000 solid;
-  border-radius: 8px;
+  border-radius: 12px;
   margin: 10px;
   padding: 10px;
   background-color: #CCF0E4;
@@ -37,3 +44,28 @@ body{
 	color: #000000;
 	text-align: center;
 }
+.nav-button, input[type=button], input[type=submit]{
+  text-decoration: none;
+  color: #CCF0E4;
+  border: 1px solid #000000;
+  border-radius: 12px;
+  padding: 4px 8px;
+  background-color: #575757;
+}
+.nav-active-action, input[type=submit]{
+  background-color: #032016;
+}
+input[type=button], input[type=submit]{
+ margin-top: 5px;
+ margin-bottom: 10px;
+}
+a {
+  color: #575757;
+}
+a:hover {
+  color: #032016;
+}
+h2 {
+  -webkit-margin-before: 0px;
+}
+
