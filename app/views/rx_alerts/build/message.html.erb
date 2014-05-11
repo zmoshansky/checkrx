@@ -1,10 +1,14 @@
 <%= form_for @rx_alert, url: wizard_path, method: :put do |f| %>
   <%= hidden_field_tag(:rx_alert_id, @rx_alert.id) %>
-  <%= f.label 'Enter Message' %>
-  <%= f.text_area :message %>
-  <%= f.label 'Restock Time' %>
-  <%= f.text_field :expected_restock %>
-  <%= f.label 'Availability' %>
-  <%= f.text_field :availability %>
+  <div class="alert-fields">
+    <%= f.label 'Availability' %><br>
+    <%= radio_button_tag(:availability, 'avail') %>Available
+    <%= radio_button_tag(:availability, 'low') %>Limited
+    <%= radio_button_tag(:availability, 'out') %>Out of Stock<br><br>
+    <%= f.label 'Enter Message' %><br>
+    <%= f.text_area :message, size:"40x5" %><br><br>
+    <%= f.label 'Expected Restock Date' %><br>
+    <%= date_select(:rx_alert, :expected_restock) %><br>
+  </div>
   <%= f.submit 'Review' %>
 <% end %>

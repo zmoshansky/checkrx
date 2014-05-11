@@ -13,6 +13,7 @@ class RxAlerts::BuildController < ApplicationController
     @rx_alert = RxAlert.find(params[:rx_alert_id])
     params.delete(params[:rx_alert_id])
     @rx_alert.update_attributes(params[:rx_alert])
+    @rx_alert.update_attributes(availability: params[:availability]) if params[:availability]
     if @rx_alert.set_name!.nil?
       redirect_to wizard_path(step, rx_alert_id: @rx_alert.id)
     else

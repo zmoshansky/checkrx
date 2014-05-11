@@ -12,7 +12,7 @@ class RxAlertsController < ApplicationController
 
   def update
     @rx_alert = RxAlert.find(params[:id])
-    @rx_alert.mark_complete!
+    # @rx_alert.mark_complete!
     flash[notice: 'Rx Alert Created']
     render :show
   end
@@ -21,13 +21,13 @@ class RxAlertsController < ApplicationController
     @rx_alerts = RxAlert.all
     todays_date = DateTime.now.beginning_of_day
     week_ago_date = todays_date - 7
-    @todays_alerts = @rx_alerts.find_all do |alert| 
+    @todays_alerts = @rx_alerts.find_all do |alert|
       alert.updated_at > todays_date
     end
-    @last_week_alerts = @rx_alerts.find_all do |alert| 
+    @last_week_alerts = @rx_alerts.find_all do |alert|
       alert.updated_at <= todays_date and alert.updated_at > week_ago_date
     end
-    @older_alerts = @rx_alerts.find_all do |alert| 
+    @older_alerts = @rx_alerts.find_all do |alert|
       alert.updated_at < week_ago_date
     end
   end
