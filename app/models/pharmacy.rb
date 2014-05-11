@@ -5,7 +5,8 @@ class Pharmacy < ActiveRecord::Base
 
   def get_rev_sorted_alerts(limit)
     alerts = self.rx_alerts
-    rev_sorted_alerts = alerts.sort { |a,b| a.updated_at <=> b.updated_at }
+    sorted_alerts = alerts.sort { |a,b| a.updated_at <=> b.updated_at }
+    rev_sorted_alerts = sorted_alerts.reverse
     if limit
       return rev_sorted_alerts[0..limit]
     else

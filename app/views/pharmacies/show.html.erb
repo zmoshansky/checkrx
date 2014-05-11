@@ -8,5 +8,7 @@
 <% if @pharmacy.rx_alerts.empty? %>
     <p>(none to report)</p>
 <% else %>
-    <%= render 'rx_alerts/alert_feed_item', collection: @pharmacy.get_rev_sorted_alerts(20) %>
+    <% @pharmacy.get_rev_sorted_alerts(20).each do |alert_feed_item| %>
+        <%= render 'rx_alerts/alert_feed_item', alert_feed_item: alert_feed_item %>
+    <% end %>
 <% end %>

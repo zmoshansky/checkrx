@@ -32,7 +32,8 @@ class RxAlert < ActiveRecord::Base
   end
 
   def self.get_rev_sorted_alerts_from_array(alerts, limit)
-    rev_sorted_alerts = alerts.sort { |a,b| a.updated_at <=> b.updated_at }
+    sorted_alerts = alerts.sort { |a,b| a.updated_at <=> b.updated_at }
+    rev_sorted_alerts = sorted_alerts.reverse
     if limit
       return rev_sorted_alerts[0..limit]
     else
