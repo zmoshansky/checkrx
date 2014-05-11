@@ -6,6 +6,6 @@ class AddRoleToUser < ActiveRecord::Migration
 
   def down
     remove_column :users, :employable_id
-    remove_column :users, :employable_type
+    remove_column :users, :employable_type if Users.columns.include? 'employable_type'
   end
 end
