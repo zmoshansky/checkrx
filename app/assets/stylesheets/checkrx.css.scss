@@ -1,0 +1,39 @@
+/* Custom Css for global CheckRX usage */
+body{
+  background-color: #2FA27C;
+}
+.banner-top{
+  margin: 10px;
+  height: 60px;
+}
+.banner-top .banner-icon {
+  background-image:image-url("rx_symbol_black_italic_plain.png");
+  background-size: 80px 60px;
+  background-repeat: no-repeat;
+  background-position: top left;
+  height: 60px;
+  width: 80px;
+  margin-left: 125px;
+}
+.banner-top .banner-title {
+  color: #000000;
+  font-weight: bold;
+  font-size: 45px;
+  height: 60px;
+  width: 125px;
+  vertical-align: center;
+  float: left;
+  padding-top: 3px;
+}
+.main-body{
+  border: 2px #000000 solid;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #CCF0E4;
+}
+.main-footer{
+	font-size: 12px;
+	color: #000000;
+	text-align: center;
+}
