@@ -17,14 +17,18 @@
 <div class="user-menu">
 	<div class="button-holder">
       <% if user_signed_in? %>
- 	    <%= link_to 'Sign out', destroy_user_session_path, {class: 'nav-button', method: :delete} %>
+ 	    <%= link_to 'Sign out', destroy_user_session_path, {class: 'nav-button search-box sign-out', method: :delete} %>
+      <%= form_tag :controller => '/search', :action => 'search', :method => 'post', class: 'search-box' do %>
+          <%= text_field_tag :search, params[:query], :id => 'search_field' %>
+          <%= submit_tag "Search", :name => nil %>
+      <% end %>
      <% elsif !params[:controller].include? "devise" %>
  	    <%= link_to 'Sign in', new_user_session_path, {class: 'nav-button'} %>
      <% end %>
     </div>
     <div class="tab-holder">
       <% if user_signed_in? %>
-        <% if params[:controller].include? "rx_alerts" %>
+        <% if params[:controller].include?("rx_alerts") || params[:controller].include?("search") %>
           <% if params[:action].include? "my_alerts" %>
             <%= link_to 'Alerts', rx_alerts_path, {class: 'nav-tab'} %>
             <%= link_to 'My Alerts', my_alerts_path, {class: 'nav-tab active-tab'} %>

@@ -9,8 +9,9 @@ Checkrx::Application.routes.draw do
     end
     # resources :build, controller: 'rx_alerts/build'
   end
-
+  post 'search', controller: 'search'
   get 'my_alerts', controller: 'rx_alerts'
+
   resources :rx_alerts_builder, controller: 'rx_alerts/build'
 
   # resources :rx_alerts_builder, controller: 'rx_alerts_builder'
