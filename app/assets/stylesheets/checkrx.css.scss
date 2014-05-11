@@ -10,7 +10,7 @@ h2{
   font-size: 1.5em;
 }
 h3{
-   font-size: 1em; 
+   font-size: 1em;
 }
 body{
   background-color: #2FA27C;
@@ -162,7 +162,7 @@ h2 {
   font-size: 15px;
   font-weight: bold;
   color: #032016;
-  text-decoration: underline;  
+  text-decoration: underline;
 }
 .pharm-fields ul{
   list-style: none outside none;
@@ -178,7 +178,7 @@ h2 {
   font-size: 15px;
   font-weight: bold;
   color: #032016;
-  text-decoration: underline;  
+  text-decoration: underline;
 }
 .pharmacy-list-item .pharm-fields ul{
   list-style: none outside none;
@@ -189,4 +189,7 @@ h2 {
 }
 .pharmacy-list-item .pharm-fields .address-field{
   padding-left: 10px;
+}
+.alert-drug-details .nav-button{
+  margin-left: 20px;
 }

@@ -25,12 +25,19 @@
     <div class="tab-holder">
       <% if user_signed_in? %>
         <% if params[:controller].include? "rx_alerts" %>
- 	      <%= link_to 'Alerts', rx_alerts_path, {class: 'nav-tab active-tab'} %>
- 	      <%= link_to 'Pharmacies', pharmacies_path, {class: 'nav-tab'} %>
- 	    <% elsif params[:controller].include? "pharmacies" %>
- 	      <%= link_to 'Alerts', rx_alerts_path, {class: 'nav-tab'} %>
- 	      <%= link_to 'Pharmacies', pharmacies_path, {class: 'nav-tab active-tab'} %>
- 	    <% end %>
+          <% if params[:action].include? "my_alerts" %>
+            <%= link_to 'Alerts', rx_alerts_path, {class: 'nav-tab'} %>
+            <%= link_to 'My Alerts', my_alerts_path, {class: 'nav-tab active-tab'} %>
+          <% else %>
+            <%= link_to 'Alerts', rx_alerts_path, {class: 'nav-tab active-tab'} %>
+            <%= link_to 'My Alerts', my_alerts_path, {class: 'nav-tab'} %>
+          <% end %>
+          <%= link_to 'Pharmacies', pharmacies_path, {class: 'nav-tab'} %>
+   	    <% elsif params[:controller].include? "pharmacies" %>
+          <%= link_to 'Alerts', rx_alerts_path, {class: 'nav-tab'} %>
+          <%= link_to 'My Alerts', my_alerts_path, {class: 'nav-tab'} %>
+   	      <%= link_to 'Pharmacies', pharmacies_path, {class: 'nav-tab active-tab'} %>
+   	    <% end %>
       <% end %>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<h2>Recent Alerts<%= link_to 'Add New Alert', new_rx_alert_path, {class: 'nav-button nav-active-action nav-top-right'} %></h2>
+<h2><%= @title %><%= link_to 'Add New Alert', new_rx_alert_path, {class: 'nav-button nav-active-action nav-top-right'} %></h2>
 <div class="activity-feed">
   <% if @rx_alerts.empty? %>
     <p>No recent alerts</p>

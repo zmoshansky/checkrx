@@ -4,8 +4,13 @@ Checkrx::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
   resources :rx_alerts, controller: 'rx_alerts' do
+    member do
+      put 'change_to_available'
+    end
     # resources :build, controller: 'rx_alerts/build'
   end
+
+  get 'my_alerts', controller: 'rx_alerts'
   resources :rx_alerts_builder, controller: 'rx_alerts/build'
 
   # resources :rx_alerts_builder, controller: 'rx_alerts_builder'

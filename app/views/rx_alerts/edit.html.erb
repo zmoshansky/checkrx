@@ -1,0 +1,3 @@
+<h2>Alert Details</h2>
+<%= render partial: 'alert_feed_item', object: @rx_alert %><br>
+<%= link_to 'Back in Stock', change_to_available_rx_alert_path(@rx_alert), {class: 'nav-button nav-active', method: :put} %><br><br>

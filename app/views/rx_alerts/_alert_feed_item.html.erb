@@ -5,7 +5,7 @@
       <% else %>
 	    <span>Drug: <%= alert_feed_item.brand_name %></span>
 	  <% end %>
-	  <span>(<a onclick="openDrugFormulary(<%= alert_feed_item.din %>)" title="Click to Search on Drug Formulary">DIN: <%= alert_feed_item.din %>)</a></span>
+	  <span>(<a onclick="openDrugFormulary(<%= alert_feed_item.din %>)" title="Click to Search on Drug Formulary">DIN: <%= alert_feed_item.din %>)</a></span><%= link_to 'Edit', edit_rx_alert_path(alert_feed_item), {class: 'nav-button' } if(params['action'] == 'my_alerts' && alert_feed_item.availability != :avail) %>
     </div>
     <div class="pull-right">
         <span>Availability: <%= alert_feed_item.availability_human %></span><br>
