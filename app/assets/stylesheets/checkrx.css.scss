@@ -20,24 +20,26 @@ body{
   margin: 10px;
   height: 60px;
 }
-.banner-top .banner-icon {
-  background-image:image-url("rx_symbol_black_italic_plain.png");
-  background-size: 80px 60px;
-  background-repeat: no-repeat;
-  background-position: top left;
+.banner-top a{
+  text-decoration: none;
+}
+.banner-top .banner-icon img {
+  //display: inline;
+  //background-image: image-url("rx_symbol_black_italic_plain.png");
+  //background-size: 80px 60px;
+  //background-repeat: no-repeat;
+  //background-position: top left;
   height: 60px;
   width: 80px;
-  margin-left: 125px;
 }
 .banner-top .banner-title {
-  font-family: Times;
+  font-family: Arial;
   color: #000000;
   font-weight: bold;
   font-size: 45px;
   height: 60px;
-  width: 125px;
+  margin-left: 80px;
   vertical-align: center;
-  float: left;
   padding-top: 3px;
 }
 .user-menu{
