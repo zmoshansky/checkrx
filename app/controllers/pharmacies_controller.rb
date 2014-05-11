@@ -50,7 +50,7 @@ class PharmaciesController < ApplicationController
   private
   
   def ensure_phone_num_is_numeric(pharm)
-    return if pharm.phone.class == FixNum
+    return if pharm.phone.class == Fixnum
 
     begin
       num = pharm.phone
