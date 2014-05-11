@@ -1,7 +1,7 @@
 class Pharmacy < ActiveRecord::Base
   attr_accessible :address, :city, :email, :name, :phone, :postal_code
   has_many :users, as: :employable
-  has_many :rx_alerts
+  has_many :rx_alerts, inverse_of: :pharmacy
 
   def get_rev_sorted_alerts(limit)
     alerts = self.rx_alerts
@@ -12,4 +12,5 @@ class Pharmacy < ActiveRecord::Base
       return rev_sorted_alerts
     end
   end
+
 end

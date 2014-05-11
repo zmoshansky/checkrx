@@ -1,7 +1,20 @@
 class RxAlertsController < ApplicationController
 
   def show
+    #  @user = current_user
+    # case step
+    # when :din
+    #   @rx_alert = current_user.empoyable.rx_alerts.build
+    # end
+    # render_wizard
+    # binding.pry
+    if params[:id] == 'building'
+    # binding.pry
 
+      return redirect_to action: 'create'
+    end
+    @rx_alerts = [RxAlert.find(params[:id])]
+    render :index
   end
 
   def index
@@ -21,13 +34,17 @@ class RxAlertsController < ApplicationController
 
   def new
     authenticate_user!
+    # if current_user.employable.nil?
+    #   redirect_to edit_user_registration_path(current_user), flash: {error: 'You must have a pharmacy to create a RX Alert'}
+    # end
+    @rx_alert = RxAlert.new
   end
 
   def create
-    authenticate_user!
+    # authenticate_user!
   end
 
   def destroy
-    authenticate_user!
+    # authenticate_user!
   end
 end

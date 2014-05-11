@@ -3,8 +3,12 @@ Checkrx::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  resources :rx_alerts, controller: 'rx_alerts' do
+    resources :build, controller: 'rx_alerts/build'
+  end
 
-  resources :rx_alerts, only: [:index, :show, :new, :create, :update, :destroy]
+  # resources :rx_alerts_builder, controller: 'rx_alerts_builder'
+  # resources :rx_alerts, only: [:index, :show, :new, :create, :update, :destroy]
 
   resources :pharmacies, only: [:index, :show, :new, :create, :update, :destroy]
   # Sample of regular route:

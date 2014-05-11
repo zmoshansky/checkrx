@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20140511004718) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.integer  "employable_id"
+    t.string   "employable_type"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
