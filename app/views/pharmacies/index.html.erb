@@ -1,4 +1,6 @@
 <h2>Pharmacies<%= link_to 'Add New Pharmacy', new_pharmacy_path, {class: 'nav-button nav-active-action nav-top-right'} %></h2>
 <div class="pharmacy-list">
-  
+  <% @pharmacies.each do |pharm| %>
+    <%= render 'pharmacy_list_item', pharm: pharm %>
+  <% end %>
 </div>
