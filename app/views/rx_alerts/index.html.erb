@@ -5,15 +5,15 @@
   <% else %>
     <% unless @todays_alerts.empty? %>
       <span class="activity-date-group">Today</span>
-      <%= render 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@todays_alerts,100) %>
+      <%= render partial: 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@todays_alerts,100) %>
     <% end %>
     <% unless @last_week_alerts.empty? %>
       <span class="activity-date-group">Past Week</span>
-      <%= render 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@last_week_alerts,100) %>
+      <%= render partial: 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@last_week_alerts,100) %>
     <% end %>
     <% unless @older_alerts.empty? %>
       <span class="activity-date-group">Older</span>
-      <%= render 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@older_alerts,20) %>
+      <%= render partial: 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@older_alerts,20) %>
     <% end %>
   <% end %>
 </div>
