@@ -5,10 +5,11 @@
       <% else %>
 	    <span>Drug: <%= alert.brand_name %></span>
 	  <% end %>
-        <span>Availability: <%= alert.availability %></span>
+	  <span>(<a onclick="openDrugFormulary(<%= alert.din %>)" title="Click to Search on Drug Formulary">DIN: <%= alert.din %>)</a></span>
     </div>
     <div class="pull-right">
-        <span>Sent out: <%= alert.updated_at.to_formatted_s(:short) %>(GMT)</span>
-        <span>Expected restock date: <%= alert.expected_restock.to_formatted_s(:short) %>(GMT)</span>
+        <span>Availability: <%= alert.availability_human %></span><br>
+        <span>Sent out: <%= alert.updated_at.to_formatted_s(:short) %> (GMT)</span><br>
+        <span>Expected restock date: <%= alert.expected_restock.to_formatted_s(:short) %> (GMT)</span>
     </div>
 </div>

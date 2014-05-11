@@ -11,6 +11,16 @@ class RxAlert < ActiveRecord::Base
      write_attribute(:availability, value.to_s)
    end
 
+   def availability_human
+     if self.availability == :avail
+       return 'Available'
+     elsif self.availability == :low
+       return 'Limited'
+     else
+       return 'Out of Stock'
+     end
+   end
+
   def self.get_rev_sorted_alerts(limit)
     alerts = self.all
     self.get_rev_sorted_alerts_from_array(alerts, limit)
