@@ -1,8 +1,7 @@
 <div class="pharmacy-list-item">
-  <h5>
+  <div class="pharmacy-name">
     <%= link_to (pharm.name + " / " + pharm.city), pharmacy_path(pharm) %>
-  </h5>
-  <ul>
+  </div>
   <div class="pharm-fields">
       <%= render 'pharmacy_fields', pharm: pharm %>
   </div>
