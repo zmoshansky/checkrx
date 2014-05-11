@@ -1,7 +1,11 @@
 class AddRoleToUser < ActiveRecord::Migration
-  def change
-    change_table :users do |t|
-      t.references :employable
-    end
+  def up
+    add_column :users, :employable_id, :integer
+    add_column :users, :employable_type, :string
+  end
+
+  def down
+    remove_column :users, :employable_id
+    remove_column :users, :employable_type if Users.columns.include? 'employable_type'
   end
 end

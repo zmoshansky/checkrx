@@ -5,22 +5,15 @@
   <% else %>
     <% unless @todays_alerts.empty? %>
       <span class="activity-date-group">Today</span>
-      <% RxAlert.get_rev_sorted_alerts_from_array(@todays_alerts,100).each do |alert| %>
-        <%= render 'alert_feed_item', alert: alert %>
-      <% end %>
+      <%= render partial: 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@todays_alerts,100) %>
     <% end %>
     <% unless @last_week_alerts.empty? %>
       <span class="activity-date-group">Past Week</span>
-      <% RxAlert.get_rev_sorted_alerts_from_array(@last_week_alerts,100).each do |alert| %>
-        <%= render 'alert_feed_item', alert: alert %>
-      <% end %>
+      <%= render partial: 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@last_week_alerts,100) %>
     <% end %>
     <% unless @older_alerts.empty? %>
       <span class="activity-date-group">Older</span>
-      <% RxAlert.get_rev_sorted_alerts_from_array(@older_alerts,20).each do |alert| %>
-        <%= render 'alert_feed_item', alert: alert %>
-      <% end %>
+      <%= render partial: 'alert_feed_item', collection: RxAlert.get_rev_sorted_alerts_from_array(@older_alerts,20) %>
     <% end %>
   <% end %>
-  <%# render partial: 'rx_alert_tile', collection: @rx_alerts %>
 </div>

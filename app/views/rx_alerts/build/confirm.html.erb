@@ -1,0 +1,6 @@
+<%= render partial: 'rx_alerts/alert_feed_item', object: @rx_alert %>
+<%= form_for @rx_alert, url: wizard_path, method: :put do |f| %>
+  <%= hidden_field_tag(:rx_alert_id, @rx_alert.id) %>
+  <%= hidden_field_tag(:build_status, "complete") %>
+  <%= f.submit 'Create Alert' %>
+<% end %>

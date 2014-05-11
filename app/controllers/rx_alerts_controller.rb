@@ -1,7 +1,20 @@
 class RxAlertsController < ApplicationController
 
   def show
+    if params[:id] == 'building'
+      if has_pharmacy?
+        redirect_to '/rx_alerts_builder'
+      end
+    else
+      @rx_alert = RxAlert.find(params[:id])
+    end
+  end
 
+  def update
+    @rx_alert = RxAlert.find(params[:id])
+    @rx_alert.mark_complete!
+    flash[notice: 'Rx Alert Created']
+    render :show
   end
 
   def index
@@ -20,14 +33,14 @@ class RxAlertsController < ApplicationController
   end
 
   def new
-    authenticate_user!
+    redirect_to '/rx_alerts_builder'
   end
 
   def create
-    authenticate_user!
+    new
   end
 
   def destroy
-    authenticate_user!
+    # authenticate_user!
   end
 end

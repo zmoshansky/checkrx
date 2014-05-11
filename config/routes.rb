@@ -3,8 +3,13 @@ Checkrx::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  resources :rx_alerts, controller: 'rx_alerts' do
+    # resources :build, controller: 'rx_alerts/build'
+  end
+  resources :rx_alerts_builder, controller: 'rx_alerts/build'
 
-  resources :rx_alerts, only: [:index, :show, :new, :create, :update, :destroy]
+  # resources :rx_alerts_builder, controller: 'rx_alerts_builder'
+  # resources :rx_alerts, only: [:index, :show, :new, :create, :update, :destroy]
 
   resources :pharmacies, only: [:index, :show, :new, :create, :update, :destroy]
   # Sample of regular route:
@@ -53,7 +58,7 @@ Checkrx::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'rx_alerts', action: :index
 
   # See how all your routes lay out with "rake routes"
 
