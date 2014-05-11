@@ -1,0 +1,36 @@
+<h2><%= @pharmacy.name %> -- <%= @pharmacy.city %></h2>
+
+<ul>
+    <li>
+        Name: <%= @pharmacy.name %>
+    </li>
+
+    <li>
+        Address: <%= @pharmacy.address %>
+    </li>
+
+    <li>
+        City: <%= @pharmacy.city %>
+    </li>
+
+    <li>
+        Postal Code: <%= @pharmacy.postal_code %>
+    </li>
+
+    <li>
+        Phone: <%= number_to_phone(@pharmacy.phone) %>
+    </li>
+
+    <li>
+        Email: <%= @pharmacy.email %>
+    </li>
+</ul>
+
+<h3>Recent Activity</h3>
+<% if @pharmacy.rx_alerts.empty? %>
+    <p>(none to report)</p>
+<% else %>
+    <% @pharmacy.get_rev_sorted_alerts(20).each do |alert| %>
+        <%= render 'rx_alerts/alert_feed_item', alert: alert %>
+    <% end %>
+<% end %>
