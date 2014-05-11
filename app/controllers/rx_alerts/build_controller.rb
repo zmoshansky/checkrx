@@ -12,8 +12,12 @@ class RxAlerts::BuildController < ApplicationController
   def update
     @rx_alert = RxAlert.find(params[:rx_alert_id])
     params.delete(params[:rx_alert_id])
-    res = @rx_alert.update_attributes(params[:rx_alert])
-    redirect_to wizard_path(next_step, rx_alert_id: @rx_alert.id)
+    @rx_alert.update_attributes(params[:rx_alert])
+    if @rx_alert.set_name!.nil?
+      redirect_to wizard_path(step, rx_alert_id: @rx_alert.id)
+    else
+      redirect_to wizard_path(next_step, rx_alert_id: @rx_alert.id)
+    end
   end
 
   def index
@@ -31,6 +35,7 @@ class RxAlerts::BuildController < ApplicationController
   end
 
   def finish_wizard_path
+    RxAlert.find(params[:rx_alert_id]).mark_complete!
     rx_alert_path(params[:rx_alert_id])
   end
 end

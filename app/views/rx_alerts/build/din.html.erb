@@ -1,5 +1,6 @@
 <%= form_for @rx_alert, url: wizard_path, method: :put do |f| %>
   <%= hidden_field_tag(:rx_alert_id, @rx_alert.id) %>
+  <%= f.label 'Drug Identification Number' %>
   <%= f.text_field :din %>
   <%= f.submit 'Find Medication for Din' %>
 <% end %>

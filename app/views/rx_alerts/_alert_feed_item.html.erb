@@ -10,6 +10,8 @@
     <div class="pull-right">
         <span>Availability: <%= alert_feed_item.availability_human %></span><br>
         <span>Sent out: <%= alert_feed_item.updated_at.to_formatted_s(:short) %> (GMT)</span><br>
-        <span>Expected restock date: <%= alert_feed_item.expected_restock.to_formatted_s(:short) %> (GMT)</span>
+        <% unless alert_feed_item.expected_restock.nil? %>
+            <span>Expected restock date: <%= alert_feed_item.expected_restock.to_formatted_s(:short) %> (GMT)</span>
+        <% end %>
     </div>
 </div>
