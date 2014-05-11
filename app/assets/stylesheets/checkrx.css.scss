@@ -1,4 +1,17 @@
 /* Custom Css for global CheckRX usage */
+*{
+  font-family:'Lucida Grande',Verdana, sans-serif;
+  font-size: 13px;
+}
+h1{
+  font-size: 2.2em;
+}
+h2{
+  font-size: 1.5em;
+}
+h3{
+   font-size: 1em; 
+}
 body{
   background-color: #2FA27C;
 }
@@ -17,6 +30,7 @@ body{
   margin-left: 125px;
 }
 .banner-top .banner-title {
+  font-family: Times;
   color: #000000;
   font-weight: bold;
   font-size: 45px;
@@ -29,7 +43,32 @@ body{
 .user-menu{
   float: right;
   padding-right: 15px;
-  padding-top: 50px;
+  padding-top: 10px;
+  text-align: right;
+}
+.user-menu .button-holder{
+  height: 30px;
+}
+.user-menu .tab-holder{
+  padding-right:5px;
+  padding-top: 19px;
+}
+.nav-tab {
+  height: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 4px 8px;
+  background-color: #CCF0E4
+}
+.active-tab{
+  background-color: #ffffff;
+  color: #032016;
 }
 .main-body{
   clear: both;
@@ -44,28 +83,54 @@ body{
 	color: #000000;
 	text-align: center;
 }
+a {
+  color:#575757;
+}
+a.small-link{
+  font-size:80%;
+}
 .nav-button, input[type=button], input[type=submit]{
   text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
   color: #CCF0E4;
   border: 1px solid #000000;
   border-radius: 12px;
   padding: 4px 8px;
   background-color: #575757;
+  white-space: pre;
+  font: -webkit-small-control;
+  cursor: pointer;
 }
 .nav-active-action, input[type=submit]{
   background-color: #032016;
+}
+.nav-top-right {
+  float: right;
 }
 input[type=button], input[type=submit]{
  margin-top: 5px;
  margin-bottom: 10px;
 }
-a {
-  color: #575757;
-}
-a:hover {
-  color: #032016;
-}
 h2 {
   -webkit-margin-before: 0px;
+}
+#error_explanation {
+  display: inline-block;
+  border: 1px solid #EC5132;
+  background-color: #F5CEC7;
+  margin: 10px;
+  padding: 10px;
+  width: auto;
+}
+#error_explanation h2{
+  font-size: 14px;
+}
+#error_explanation li{
+  font-size: 12px;
+}
+.field_with_errors input, .field_with_errors select{
+  border-color: #EC5132;
+  background-color: #F5CEC7 !important;
 }
 

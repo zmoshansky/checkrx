@@ -14,15 +14,31 @@
 	</a>
 </div>
 <div class="user-menu">
- <% if user_signed_in? %>
- 	<%= link_to 'Add New Alert', new_rx_alert_path, {class: 'nav-active-action nav-button'} %>
- 	<%= link_to 'Sign out', destroy_user_session_path, {class: 'nav-button', method: :delete} %>
- <% elsif !params[:controller].include? "devise" %>
- 	<%= link_to 'Sign in', new_user_session_path, {class: 'nav-button'} %>
- <% end %>
-</div>
+	<div class="button-holder">
+      <% if user_signed_in? %>
+ 	    <%= link_to 'Sign out', destroy_user_session_path, {class: 'nav-button', method: :delete} %>
+     <% elsif !params[:controller].include? "devise" %>
+ 	    <%= link_to 'Sign in', new_user_session_path, {class: 'nav-button'} %>
+     <% end %>
+    </div>
+    <div class="tab-holder">
+      <% if user_signed_in? %>
+        <% if params[:controller].include? "rx_alerts" %>
+ 	      <%= link_to 'Alerts', rx_alerts_path, {class: 'nav-tab active-tab'} %>
+ 	      <%= link_to 'Pharmacies', pharmacies_path, {class: 'nav-tab'} %>
+ 	    <% elsif params[:controller].include? "pharmacies" %>
+ 	      <%= link_to 'Alerts', rx_alerts_path, {class: 'nav-tab'} %>
+ 	      <%= link_to 'Pharmacies', pharmacies_path, {class: 'nav-tab active-tab'} %>
+ 	    <% end %>
+      <% end %>
+    </div>
+  </div>
 <div class="main-body">
-	<%= yield %>
+	<% if user_signed_in? or params[:controller].include? "devise" %>
+	  <%= yield %>
+	<% else %>
+      Welcome to CheckRx! Please <%= link_to 'Sign in', new_user_session_path %> to view recent alerts.
+	<% end %>
 </div>
 <div class="main-footer">Developed at Hacking Health North 2014</div>
 </body>

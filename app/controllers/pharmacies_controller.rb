@@ -9,6 +9,7 @@ class PharmaciesController < ApplicationController
     authenticate_user!
 
     @pharmacy = Pharmacy.new(params[:pharmacy])
+    
     ensure_phone_num_is_numeric(@pharmacy)
     if @pharmacy.save
 
@@ -29,7 +30,6 @@ class PharmaciesController < ApplicationController
     unless @pharmacy
       return render action: "index", notice: "Pharmacy not found"
     end
-    binding.pry
   end
 
   def index
