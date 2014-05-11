@@ -4,7 +4,7 @@
     <%= render 'pharmacy_fields', pharm: @pharmacy %>
 </div>
 
-<h3>Recent Activity</h3>
+<div class="pharm-recent">Recent Activity</div>
 <% if @pharmacy.rx_alerts.empty? %>
     <p>(none to report)</p>
 <% else %>
