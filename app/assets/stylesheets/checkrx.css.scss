@@ -133,4 +133,63 @@ h2 {
   border-color: #EC5132;
   background-color: #F5CEC7 !important;
 }
+.activity-feed {
 
+}
+.activity-date-group {
+  font-size: 15px;
+  font-weight: bold;
+  color: #032016;
+  text-decoration: underline;
+}
+.rx_alert_feed_item {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.rx_alert_feed_item .pull-left{
+  font-weight: bold;
+  padding-left: 5px;
+}
+.rx_alert_feed_item .pull-right{
+  padding-left: 25px;
+}
+.rx_alert_feed_item .pull-right{
+  font-size: 90%;
+  font-style: italic;
+}
+.pharmacy-list-item{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.pharmacy-name a{
+  font-size: 15px;
+  font-weight: bold;
+  color: #032016;
+  text-decoration: underline;  
+}
+.pharm-fields ul{
+  list-style: none outside none;
+  padding-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.pharm-fields .address-field{
+  padding-left: 10px;
+}
+
+.pharmacy-list-item .pharmacy-name a{
+  font-size: 15px;
+  font-weight: bold;
+  color: #032016;
+  text-decoration: underline;  
+}
+.pharmacy-list-item .pharm-fields ul{
+  list-style: none outside none;
+  padding-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+.pharmacy-list-item .pharm-fields .address-field{
+  padding-left: 10px;
+}
