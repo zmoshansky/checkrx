@@ -1,0 +1,18 @@
+<ul>
+    <li>
+        Phone: <%= number_to_phone(pharm.phone) %>
+    </li>
+
+    <li>
+        Email: <%= pharm.email %>
+    </li>
+
+    <li>
+        Address: 
+        <div class="address-field">
+        <%= pharm.address %>, <%= pharm.city %>
+        <br>
+        <%= pharm.postal_code %>
+        </div>
+    </li>
+</ul>

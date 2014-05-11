@@ -1,0 +1,9 @@
+<div class="pharmacy-list-itme">
+  <h5>
+    <%= link_to (pharm.name + " / " + pharm.city), pharmacy_path(pharm) %>
+  </h5>
+  <ul>
+  <div class="pharm-fields">
+      <%= render 'pharmacy_fields', pharm: pharm %>
+  </div>
+</div>
