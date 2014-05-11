@@ -8,11 +8,15 @@ class RxAlertsController < ApplicationController
     @rx_alerts = RxAlert.all
   end
 
-  def create
+  def new
+    authenticate_user!
+  end
 
+  def create
+    authenticate_user!
   end
 
   def destroy
-
+    authenticate_user!
   end
 end
