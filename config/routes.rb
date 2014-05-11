@@ -6,6 +6,7 @@ Checkrx::Application.routes.draw do
 
   resources :rx_alerts, only: [:index, :show, :new, :create, :update, :destroy]
 
+  resources :pharmacies, only: [:index, :show, :new, :create, :update, :destroy]
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
